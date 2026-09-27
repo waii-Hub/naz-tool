@@ -1,8 +1,19 @@
 (function() {
+    // Thông báo kiểm tra xem script có được gọi thành công không
+    alert("Script NAZ UI đã được kích hoạt thành công!");
+
+    // Tránh lỗi khi trang web chưa load xong thẻ body
+    if (!document.body) {
+        alert("Lỗi: Trang web này chưa tải xong hoặc không cho phép hiển thị UI!");
+        return;
+    }
+
+    // Xóa UI cũ nếu đã tồn tại
     if (document.getElementById('naz-ui-box')) {
         document.getElementById('naz-ui-box').remove();
     }
 
+    // Tạo khung giao diện
     const container = document.createElement('div');
     container.id = 'naz-ui-box';
     container.innerHTML = `
@@ -101,4 +112,3 @@
         }
     }
 })();
-          
